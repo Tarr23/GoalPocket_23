@@ -1,5 +1,7 @@
 # Goalpocket
 
+**Live demo:** https://goalpocket-iota.vercel.app (demo mode, no AI key yet)
+
 Know what's in every pocket. A chat-first money companion for cash, Orange Money, MoMo and susu, in US and Liberian dollars.
 
 Hackathon prototype (Stage 5). Not financial advice. Goalpocket never asks for PINs or passwords and never moves money.
@@ -55,6 +57,6 @@ The chat tests use a fake model and demo mode, so they cost nothing and need no 
 
 ## Deploy (Vercel + Supabase)
 
-1. Create a Supabase project. Run `db/001_schema.sql` in its SQL editor. Create a non-superuser role for the app and use its connection string as `DATABASE_URL`.
+1. Create a Supabase project. Create the app role by hand (`create role gp_app login password '...'`), then run `db/001_schema.sql` and `db/002_supabase.sql` in its SQL editor. Use the pooler connection string for `gp_app` as `DATABASE_URL`.
 2. Push this folder to an empty GitHub repository.
 3. Import the repository in Vercel. Add the settings above. Deploy.

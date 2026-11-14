@@ -38,3 +38,6 @@ end $$;
 revoke insert, update, delete, truncate, references, trigger on app_users, categories from authenticated;
 revoke execute on function gp.uid() from public;
 grant execute on function gp.uid() to authenticated;
+
+-- 5. Fixed search path for the user-id function (Supabase advisor).
+alter function gp.uid() set search_path = '';
